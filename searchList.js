@@ -4,6 +4,7 @@ const LEV_DIST = 1;
 //demons: optional field to also pass in all demons (for skills)
 //raw: boolean to set if the demon (instead of the embed) should be returned
 module.exports = async function searchList(list, search, demons = false, raw = false) {
+    console.log('Searching for: ' + search);
     var target = list.find(item => item.name.toLowerCase() == search);
 
     //If no direct match
@@ -44,6 +45,8 @@ module.exports = async function searchList(list, search, demons = false, raw = f
             }
         }
     }
+
+    console.log(`Found ${target.name} in DB for '${search}'`);
 
     if(raw) return target;
     //For skills as they need the list of demons

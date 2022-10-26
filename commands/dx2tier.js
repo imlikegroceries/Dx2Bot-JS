@@ -25,7 +25,6 @@ module.exports = {
             await interaction.reply(name);
             return;
         }
-        console.log(`Found ${name.name} in DB`);
     
         //const csv = await fetch(csvLocation).then(r => r.text());
         const csv = fs.readFileSync(path.join(__dirname, '..', csvLocation)).toString();
