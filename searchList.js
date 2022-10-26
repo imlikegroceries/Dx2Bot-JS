@@ -1,7 +1,7 @@
 const levenshtein = require('js-levenshtein');
 const LEV_DIST = 1;
 
-module.exports = async function searchList(list, search, demons = false) {
+module.exports = async function searchList(list, search, demons = false, raw = false) {
     var target = list.find(item => item.name.toLowerCase() == search);
 
     //If no direct match
@@ -43,6 +43,7 @@ module.exports = async function searchList(list, search, demons = false) {
         }
     }
 
+    if(raw) return target;
     //For skills as they need the list of demons
     if(demons) return {embeds: [await target.writeToDiscord(demons)]};
     return {embeds: [await target.writeToDiscord()]};
