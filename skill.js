@@ -31,6 +31,7 @@ module.exports = class Skill {
         if(this.points == "") this.points = '-';
     }
 
+    //Takes a list of (all) demons, returns all demons that have this as an innate (untransferable) skill
     innateFrom(demons) {
         let res = '';
 
@@ -59,6 +60,7 @@ module.exports = class Skill {
         return res;
     }
 
+    //Takes a list of (all) demons as input, returns all demons that have this as a transferable
     transferFrom(demons) {
         let res = '';
 
@@ -100,7 +102,7 @@ module.exports = class Skill {
                 {name: 'Target:', value: this.target, inline: true},
                 {name: 'SP:', value: this.points, inline: true})
             .setURL(`https://dx2wiki.com/index.php/${encodeURI(this.name.replace('[', '(').replace(']', ')').replace('(', '%28').replace(')', '%29'))}`)
-            .setColor('Blue');
+            .setColor(0x4477FF);
         if(this.uses) {
             embed.addFields({name: 'Use Limit:', value: this.uses, inline: true});
         }

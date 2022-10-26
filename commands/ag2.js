@@ -30,10 +30,10 @@ module.exports = {
                             {name: 'Celestial Long', value: 'cl'},
                             {name: 'Celestial Gui Xian', value: 'cgx'},
                             {name: 'Celestial Baihu', value: 'cbh'},
-                            {name: 'Celestial Geng Feng Huang', value: 'cfv'},
+                            {name: 'Celestial Feng Huang', value: 'cfh'},
                             {name: 'Parvati', value: 'mfp'},
                             {name: 'Cybele', value: 'mfc'},
-                            {name: 'Neko Shogun', value: 'mhnk'},
+                            {name: 'Neko Shogun', value: 'mhns'},
                             {name: 'Lucifuge', value: 'mfl'}
                         ))),
 

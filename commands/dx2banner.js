@@ -14,9 +14,6 @@ module.exports = {
             subcommand.setName('current')
                 .setDescription('Returns the banners currently ongoing'))
         .addSubcommand(subcommand =>
-            subcommand.setName('update')
-                .setDescription('Updates banner information'))
-        .addSubcommand(subcommand =>
             subcommand.setName('calc')
                 .setDescription("Calculates the odds of pulling a given banner's focus(es)")
                 .addIntegerOption(option => 
@@ -28,11 +25,6 @@ module.exports = {
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
-
-        if(subcommand == 'update') {
-            await interaction.reply(`Read ${await readBanners(20)} new banner steps`);
-            return;
-        }
 
         const bannerStream = createReadStream(path.join(__dirname, '..', 'Banners.csv'));
 
@@ -77,7 +69,8 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Current Banners')
                 .addFields(...banners)
-                .setFooter({text: 'Date/times listed are all in JST'});
+                .setFooter({text: 'Date/times listed are all in JST'})
+                .setColor(0x6644FF);
 
             await interaction.reply({embeds: [embed]});
         }

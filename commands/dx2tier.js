@@ -42,7 +42,7 @@ module.exports = {
         const pvpArch = (data[2].length > 1) ? data[2].split('').join(', ') : "Any";
 
         let desc = 'Pros: ';
-        desc += data[8].replace(/\n/g, "\n* ") + '\n\n'; //replace '\n' that appear in text with actual newlines
+        desc += data[8].replace(/\n/g, "\n* ") + '\n\n'; //replace '\n' that appear in text with actual newlines + format to bullets
         desc += 'Cons: ' + data[9].replace(/\n/g, "\n* ");
         desc += '\n\nNotes: ' + data[10].replace(/\n/g, "\n* ");
         if(desc.length > 1900) { //Arbitrarily set to be safely below 2000 char limit
@@ -60,7 +60,7 @@ module.exports = {
                 {name: "PvP Defense Rating", value: data[5], inline: true},
                 {name: "Democ Prelim Rating", value: data[6], inline: true},
                 {name: "Democ Boss Rating", value: data[7], inline: true})
-            .setColor('Red')
+            .setColor(0xFF4444)
             .setURL("https://dx2wiki.com/index.php/" + encodeURI(name.name))
             .setThumbnail("https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Demons/" + encodeURI(name.name.replace("☆", "")) + ".jpg");  
 

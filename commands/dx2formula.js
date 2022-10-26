@@ -4,36 +4,23 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('dx2formula')
         .setDescription('Returns the given formula')
-        .addSubcommand(subcommand =>
-            subcommand.setName('dmg')
-                .setDescription('Returns the standard damage formula'))
-        .addSubcommand(subcommand => 
-            subcommand.setName('acc')
-                .setDescription('Returns the standard accuracy formula'))
-        .addSubcommand(subcommand => 
-            subcommand.setName('buff')
-                .setDescription('Returns the buff formula'))
-        .addSubcommand(subcommand =>
-            subcommand.setName('counter')
-                .setDescription('Returns the counter formula'))
-        .addSubcommand(subcommand =>
-            subcommand.setName('crit')
-                .setDescription('Returns the crit chance fomula'))
-        .addSubcommand(subcommand =>
-            subcommand.setName('heal')
-                .setDescription('Returns the heal formula'))
-        .addSubcommand(subcommand =>
-            subcommand.setName('inf')
-                .setDescription('Returns the ailment infliction formula'))
-        .addSubcommand(subcommand =>
-            subcommand.setName('speed')
-                .setDescription('Returns the speed formula'))
-        .addSubcommand(subcommand =>
-            subcommand.setName('stat')
-                .setDescription('Returns the base stat formulas')),
+        .addStringOption(option => 
+            option.setName('formula')
+            .setDescription('The formula to display')
+            .addChoices(
+                {name: 'dmg', value: 'dmg'},
+                {name: 'acc', value: 'acc'},
+                {name: 'buff', value: 'buff'},
+                {name: 'counter', value: 'counter'},
+                {name: 'crit', value: 'crit'},
+                {name: 'heal', value: 'heal'},
+                {name: 'inf', value: 'inf'},
+                {name: 'speed', value: 'speed'},
+                {name: 'stat', value: 'stat'}
+            )),
     
     async execute(interaction) {
-        const type = interaction.options.getSubcommand();
+        const type = interaction.options.get('formula').value;
         var title, formula;
         switch(type) {
             case 'acc':
@@ -109,6 +96,7 @@ module.exports = {
                         "FINAL DAMAGE = FINAL STAT VALUE * BASE SKILL POWER * CRIT MODIFIER * RESISTANCE MODIFIER * 0.4 * DAMAGE VARIANCE RATIO * ((100 + DAMAGE BOOSTS)/100) * ((100 + CHARGE_CONC MODIFIER)/100)`";
                 break;
         }
+        console.log('Displaying the ' + title);
 
         const embed = new EmbedBuilder()
             .setTitle(title)

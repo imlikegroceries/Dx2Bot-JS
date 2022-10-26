@@ -70,10 +70,11 @@ module.exports = {
             .addFields(
                 {name: 'Innate', value: natural.join(', ')});
         if(tAwaken.length > 0) {
-            embed.addFields({name: 'Teal Awaken', value: tAwaken.join(', ')});
+            embed.addFields({name: 'Teal Awaken', value: tAwaken.join(', ')})
+            .setColor(0x4477FF);
         }
 
-        console.log(`Found ${natural.length} demons who innate ${skillName}s and ${tAwaken.length} demons who awaken ${skillName}`);
+        console.log(`Found ${natural.length} demons who innate ${skillName} and ${tAwaken.length} demons who awaken ${skillName}`);
 
         await interaction.reply({embeds: [embed]});
     }

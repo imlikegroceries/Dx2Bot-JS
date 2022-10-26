@@ -80,7 +80,7 @@ module.exports = {
                 return {name: d[0], value: ~~((1 - d[1]) * 10000) / 100 + '%'}
             }))
             .setFooter({text: 'Be wary of cycle limits because the bot \ndoes not have that information'})
-            .setColor('Purple');
+            .setColor(0x6644FF);
 
         return {embeds: [embed]};
     }

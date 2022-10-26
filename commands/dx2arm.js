@@ -92,7 +92,8 @@ module.exports = {
         }
         embed.setFooter({text: footer})
             .setURL("https://dx2wiki.com/index.php/" + encodeURI(arm[0]))
-            .setThumbnail(thumbStart + encodeURI(arm[1]) + ".jpg");
+            .setThumbnail(thumbStart + encodeURI(arm[1]) + ".jpg")
+            .setColor(0xFF4444);
 
         await interaction.reply({embeds: [embed]});
     }

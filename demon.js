@@ -196,7 +196,7 @@ module.exports = class Demon {
                 text: `Race: ${this.race} | Grade: ${this.grade} | Rarity: ${this.rarity} | AI: ${this.ai}`
                     + (this.nickname.length > 0 ? " | Nicknames: " + this.nickname : "")
             })
-            .setColor('Red')
+            .setColor(0xFF4444)
             .setURL("https://dx2wiki.com/index.php/" + encodeURI(this.name))
             .setThumbnail("https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Demons/" + encodeURI(this.name.replace("☆", "")) + ".jpg");  
         return embed;

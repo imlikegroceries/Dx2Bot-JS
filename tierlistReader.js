@@ -72,6 +72,9 @@ async function readWiki() {
         if(err) console.error(err);
         else console.log('Successfully written to ' + csvLocation);
     });
+
+    return `Read ${tierdata.length} entries from Wiki TL`;
 }
 
-readWiki();
+//readWiki();
+module.exports.readWiki = readWiki;

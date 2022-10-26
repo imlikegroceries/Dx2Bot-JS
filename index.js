@@ -16,7 +16,7 @@ for(const file of commandFiles) {
 
 
 client.once('ready', () => {
-    console.log('ready');
+    console.log('Dx2Bot is ready.');
 });
 
 client.on('interactionCreate', async interaction => {
@@ -38,8 +38,8 @@ client.on('interactionCreate', async interaction => {
         if(!command) return;
     }
 
-
     try {
+        console.log(`\nExecuting ${interaction.commandName}:`);
         await command.execute(interaction);
     } catch(error) {
         console.error(error);
