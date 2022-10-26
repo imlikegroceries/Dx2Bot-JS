@@ -57,13 +57,9 @@ module.exports = {
 
             //Teal awaken (including unique ones like Demi or Godlys)
             const teal = d.awakenT;
-            if(teal == 'Null Elec-Force' || teal == 'Godly Shield') {
-                console.log(elem);
-                console.log(d.name);
-            }
             if(teal == skillName ||
-                (teal == 'Null Elec-Force' && (elem == 'Elec' || elem == 'Force')) ||
-                (teal == 'Godly Shield' && (elem == 'Light' || elem == 'Dark'))) {
+                (teal == 'Null Elec-Force' && (elem == 'Elec' || elem == 'Force') && resist == 'nu') ||
+                (teal == 'Godly Shield' && (elem == 'Light' || elem == 'Dark')) && resist == 'dr') {
                 
                 tAwaken.push(d.name);
             }

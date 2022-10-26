@@ -72,7 +72,7 @@ module.exports = class Demon {
         //Other Names
         this.alts = args[54];
         this.nickname = args[65];
-        this.names = this.nickname.split(", ");
+        this.names = this.nickname.split(",").map(name => name.trim());
     }
 
     //Returns all non-neutral resistances
@@ -156,7 +156,7 @@ module.exports = class Demon {
         } else if(this.exchangeable) {
             res += "Only exchangable via an Exchange";
         } else {
-            res += `[Used in Fusion](${this.fusionUrl("fusion")})\n`;
+            if(!this.gacha) res += `[Used in Fusion](${this.fusionUrl("fusion")})\n`;
             if(this.multi || !this.gacha) res += `[How to Fuse](${this.fusionUrl("fission")})`;
         }
         return res;

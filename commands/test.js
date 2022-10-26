@@ -4,15 +4,19 @@ const URL = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/csv/SMT Dx2 
 const config = require('../config.json');
 const fs = require('node:fs');
 const path = require('node:path');
+const {parsePage} = require('../bannerCSV');
+const searchList = require('../searchList');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('test')
         .setDescription('testing but again'),
     async execute(interaction) {
-        const csv = await fs.readFile(path.join(__dirname, '..', config.csvLocation), (err, buf) => {
-            if(err) console.error(err);
-            else console.log(buf.toString());
-        });
+        const demons = await Demon.demons();
+        const d = await searchList(demons, 'hl', false, true);
+        console.log(d);
+        console.log(d.test());
+
+        await interaction.reply(encodeURI('Huang Long'));
     }
 }

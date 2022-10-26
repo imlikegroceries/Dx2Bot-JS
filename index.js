@@ -20,11 +20,25 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
-    if(!interaction.isChatInputCommand()) return;
+    if(!interaction.isChatInputCommand() && !interaction.isSelectMenu()) return;
     
     const command = interaction.client.commands.get(interaction.commandName);
-    if(!command) return;
-    
+
+    if(interaction.isSelectMenu()) {
+        if(!interaction.message.interaction.commandName.includes('dx2banner')) return;
+
+        try {
+            await interaction.client.commands.get('dx2banner').execSelect(interaction);
+        } catch(error) {
+            console.error(error);
+            await interaction.reply({content: 'Error', ephemeral: true});
+        }
+        return;
+    } else { //Always a slash command
+        if(!command) return;
+    }
+
+
     try {
         await command.execute(interaction);
     } catch(error) {
