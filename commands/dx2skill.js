@@ -1,9 +1,7 @@
 const {SlashCommandBuilder} = require('discord.js');
 const Demon = require('../demon');
-const levenshtein = require('js-levenshtein');
 const Skill = require('../skill');
 const searchList = require('../searchList');
-const LEV_DIST = 1;
 
 module.exports = {
     data: new SlashCommandBuilder()
