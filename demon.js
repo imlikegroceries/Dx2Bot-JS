@@ -38,14 +38,14 @@ module.exports = class Demon {
         
         this.awakenC = args[21];
         this.awakenR = args[22];
-        this.awakenT = args[23];
+        this.awakenY = args[23];
         this.awakenP = args[24];
-        this.awakenY = args[25];
+        this.awakenT = args[25];
 
         this.gachaR = args[26];
-        this.gachaT = args[27];
+        this.gachaY = args[27];
         this.gachaP = args[28];
-        this.gachaY = args[29];
+        this.gachaT = args[29];
 
         //Default AI Type
         this.ai = args[30];

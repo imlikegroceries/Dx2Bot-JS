@@ -1,8 +1,6 @@
 const {SlashCommandBuilder} = require('discord.js');
-const levenshtein = require('js-levenshtein');
 const Demon = require('../demon');
 const searchList = require('../searchList');
-const LEV_DIST = 1;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +8,7 @@ module.exports = {
         .setDescription('Returns the information of a demon')
         .addStringOption(option => 
             option.setName('name')
-            .setDescription('The name of the demon to search')
+            .setDescription('Name of the demon to search')
             .setRequired(true)),
 
     async execute(interaction) {

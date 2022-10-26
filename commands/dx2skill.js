@@ -11,7 +11,7 @@ module.exports = {
         .setDescription('Returns the information of a skill')
         .addStringOption(option => 
             option.setName('name')
-            .setDescription('The name of the skill to search')
+            .setDescription('Name of the skill to search')
             .setRequired(true)),
     
     async execute(interaction) {

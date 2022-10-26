@@ -104,9 +104,14 @@ module.exports = class Skill {
         if(this.uses) {
             embed.addFields({name: 'Use Limit:', value: this.uses, inline: true});
         }
-        if(this.nicknames) {
-            embed.setFooter('Nicknames: ' + this.names.join(", "));
+        console.log(this.names);
+        if(this.names[0] && this.names.length > 0) {
+            embed.setFooter({text: 'Nicknames: ' + this.names.join(", ")});
         }
+        if(['Resist', 'Null', 'Repel', 'Drain'].some(rst => this.name.includes(rst))) {
+            embed.setFooter({text: `If you're looking for all demons that ${this.name}, consider using /dx2resist`});
+        }
+
         return embed;
     }
 
