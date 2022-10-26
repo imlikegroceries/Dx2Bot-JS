@@ -1,6 +1,8 @@
 const levenshtein = require('js-levenshtein');
 const LEV_DIST = 1;
 
+//demons: optional field to also pass in all demons (for skills)
+//raw: boolean to set if the demon (instead of the embed) should be returned
 module.exports = async function searchList(list, search, demons = false, raw = false) {
     var target = list.find(item => item.name.toLowerCase() == search);
 
@@ -26,7 +28,7 @@ module.exports = async function searchList(list, search, demons = false, raw = f
                     if(item.name.toLowerCase().startsWith(search)) startsWith.push(item.name);
                     if(item.name.toLowerCase().endsWith(search)) endsWith.push(item.name);
                 }
-                const partial = [...startsWith, ...endsWith];
+                const partial = [...new Set([...startsWith, ...endsWith])];
 
                 if(partial.length == 1) {
                     target = list.find(item => item.name.toLowerCase() == partial[0].toLowerCase());

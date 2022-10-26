@@ -5,7 +5,6 @@ const searchList = require('../searchList');
 const {csvLocation} = require('../config.json');
 const fs = require('node:fs');
 const path = require('node:path');
-const { off } = require('node:process');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -23,12 +22,7 @@ module.exports = {
 
         //name will either be the searched Demon, or a string of the error message
         if(typeof name == 'string' || name instanceof String) {
-            console.log(name);
-            if(name == `Could not find '${search}'`) {
-                await interaction.reply(name);
-            } else {
-                await interaction.reply(name);
-            }
+            await interaction.reply(name);
             return;
         }
         console.log(`Found ${name.name} in DB`);
