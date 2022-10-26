@@ -24,10 +24,26 @@ module.exports = {
     
     async execute(interaction) {
         const type = interaction.options.getSubcommand();
+        var url, thumbStart;
+        if(type == 'sword') {
+            url = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/csv/SMT Dx2 Database - Swords.csv";
+            thumbStart = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Swords/";
+        } else if(type == 'shield') {
+            url = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/csv/SMT Dx2 Database - Shields.csv";
+            thumbStart = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Shields/";
+        } else {
+            await interaction.reply('Invalid armament type');
+            return;
+        }
+
         const search = interaction.options.get('name').value.trim().toLowerCase();
-        const demons = await Demon.demons();
-        var csv;
-        var url;
+        const data = await fetch(url).then(r => r.text());
+        const _demons = await Demon.demons();
+
+        const csv = parse(data);
+        const csvNames = csv.map(row => row[0]);
+        const demons = _demons.filter(d => csvNames.includes(d.name));
+
         const demon = await searchList(demons, search, false, true);
 
         if(typeof demon == 'string' || demon instanceof String) {
@@ -37,20 +53,12 @@ module.exports = {
 
         console.log(`Looking for the ${type} of ${demon.name}`);
 
-        if(type == 'sword') {
-            url = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/csv/SMT Dx2 Database - Swords.csv";
-        } else if(type == 'shield') {
-            url = "https://raw.githubusercontent.com/Alenael/Dx2DB/master/csv/SMT Dx2 Database - Shields.csv";
-        } else {
-            await interaction.reply('Invalid armament type');
-            return;
-        }
 
-        const data = await fetch(url).then(r => r.text());
-        csv = parse(data);
+        //const data = await fetch(url).then(r => r.text());
+        //csv = parse(data);
 
         const arm = csv.find(row => row[0] == demon.name);
-        console.log(`Found ${type} of ${demon.name}: ${arm[0]}`);
+        console.log(`Found ${type} of ${demon.name}: ${arm[1]}`);
 
         const shieldOffset = (type == 'shield') ? 7 : 0;
         var p1, p2, p3;
@@ -86,8 +94,9 @@ module.exports = {
         } else {
             footer = `Increase ${arm[8]} | ${arm[7]} | Acc: ${arm[9]} | Crit: ${arm[10]}`;
         }
-        embed.setFooter({text: footer});
-
+        embed.setFooter({text: footer})
+            .setURL("https://dx2wiki.com/index.php/" + encodeURI(arm[0]))
+            .setThumbnail(thumbStart + encodeURI(arm[1]) + ".jpg");
 
         await interaction.reply({embeds: [embed]});
     }
