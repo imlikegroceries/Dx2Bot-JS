@@ -19,9 +19,11 @@ module.exports = {
             return;
         }
 
+        await interaction.deferReply();
+
         const tierList = await readWiki();
         const banner = await readBanners(20);
 
-        await interaction.reply({content: `${tierList}; Read ${banner} new banner steps`, ephemeral: true});
+        await interaction.editReply({content: `${tierList}; Read ${banner} new banner steps`, ephemeral: true});
     }
 }

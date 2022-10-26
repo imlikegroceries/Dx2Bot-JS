@@ -70,16 +70,14 @@ module.exports = {
             });
         }
         
-        probabilities.set("Any other 5☆", probabilities.get("Fafnir(81)"));
-        probabilities.delete("Fafnir(81)");
         console.log(probabilities);
 
         const embed = new EmbedBuilder()
-            .setTitle('Probability of Rolling in ' + numSteps + ' Step' + ((numSteps != 1) ? 's' : '') + '\nOn ' + name)
+            .setTitle('Probability of Rolling in ' + numSteps + ' Step' + ((numSteps != 1) ? 's' : '') + ' On\nThe ' + name)
             .setFields([...probabilities.entries()].map(d => {
                 return {name: d[0], value: ~~((1 - d[1]) * 10000) / 100 + '%'}
             }))
-            .setFooter({text: 'Be wary of cycle limits because the bot \ndoes not have that information'})
+            .setFooter({text: 'Be aware of cycle limits because the bot is not'})
             .setColor(0x6644FF);
 
         return {embeds: [embed]};
@@ -110,14 +108,19 @@ async function parseStep(acBox) {
     const rates = [...demon.querySelector('.table-rateStup tbody').children].slice(3);
     const probabilities = new Map();
     probabilities.set("Any 5☆ (excluding guarantees)", 1);
+
+    const baseline = [...rates[rates.length - 1].children].map(x => x.textContent);
+    baseline[2] = (+baseline[2].replace('%', '') / 100);
+    baseline[3] = (+baseline[3].replace('%', '') / 100);
+
     //Iterates through every demon in the big table
     for(const d of rates) {
-        //The row of said big table
+        //The row of said big table: [race, name, rate 1, rate 2]
         const stats = [...d.children].map(x => x.textContent);
         stats[2] = (+stats[2].replace('%', '') / 100);
         stats[3] = (+stats[3].replace('%', '') / 100);
         //If they are in the regular/abs pool, skip (except fafnir to get the standard 5* probability)
-        if(regularPool.includes(stats[1]) && stats[1] != 'Fafnir(81)') continue;
+        if(regularPool.includes(stats[1]) && stats[1] != baseline[1] && stats[2] == baseline[2]) continue;
 
         if(!probabilities.has(stats[1])) probabilities.set(stats[1], 1);
         //Calculate 10 rolls, using the appropriate probability for the i-th roll
@@ -137,6 +140,9 @@ async function parseStep(acBox) {
             probabilities.set("Any 5☆ (excluding guarantees)", probabilities.get("Any 5☆ (excluding guarantees)") * (1 - fiveRate2));
         }
     }
+
+    probabilities.set("Any other 5☆", probabilities.get(baseline[1]));
+    probabilities.delete(baseline[1]);
 
     return probabilities;
 }
