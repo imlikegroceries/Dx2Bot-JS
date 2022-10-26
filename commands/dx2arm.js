@@ -53,10 +53,6 @@ module.exports = {
 
         console.log(`Looking for the ${type} of ${demon.name}`);
 
-
-        //const data = await fetch(url).then(r => r.text());
-        //csv = parse(data);
-
         const arm = csv.find(row => row[0] == demon.name);
         console.log(`Found ${type} of ${demon.name}: ${arm[1]}`);
 

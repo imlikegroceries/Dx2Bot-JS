@@ -6,10 +6,10 @@ module.exports = {
         .setDescription('Returns the given formula')
         .addSubcommand(subcommand =>
             subcommand.setName('dmg')
-                .setDescription('Returns the damage formula'))
+                .setDescription('Returns the standard damage formula'))
         .addSubcommand(subcommand => 
             subcommand.setName('acc')
-                .setDescription('Returns the accuracy formula'))
+                .setDescription('Returns the standard accuracy formula'))
         .addSubcommand(subcommand => 
             subcommand.setName('buff')
                 .setDescription('Returns the buff formula'))
@@ -79,8 +79,8 @@ module.exports = {
                 break;
             case 'speed':
                 title = 'Battle Speed Formula';
-                formula = "`Party battle speed if first calculated at an individual demon level, then at a party level.\n" +
-                        "INDIVIDUAL DEMON SPEED = (DEMON AGILITY + SKILL AGILITY + MITAMA AGILITY) * ((SKILL SPEED PERCENT + BRAND SPEED PERCENT + PANEL PERCENT) / 100)\n" +
+                formula = "`Party battle speed is first calculated at an individual demon level, then at a party level.\n" +
+                        "INDIVIDUAL DEMON SPEED = (DEMON AGILITY + SKILL AGILITY + MITAMA AGILITY + SIN INFUSION AGILITY) * ((SKILL SPEED PERCENT + BRAND SPEED PERCENT + PANEL PERCENT) / 100)\n" +
                         "PARTY SPEED TOTAL = INDIVIDUAL DEMON SPEED TOTAL / PARTY COUNT (It's an average)`";
                 break;
             case 'stat':
