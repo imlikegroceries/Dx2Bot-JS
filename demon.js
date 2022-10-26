@@ -187,18 +187,18 @@ module.exports = class Demon {
                 {name: "Skills:", value: this.skills(), inline: true},
                 {name: "Awaken / Gacha:", value: this.archetypes(), inline: true},
                 {name: "Resists:", value: this.resists(), inline: false}
-            )
+            )  
+        if(this.p1Desc) { //If the demon has no panels, then there's shouldn't even be a 'Panels:' section
+            embed.addFields({name: "Panels:", value: this.panels(), inline: true});
+        }
+        embed.addFields({name: "Stats:", value: this.stats(rank, _demons.length) + this.avaliability(), inline: true})
             .setFooter({
                 text: `Race: ${this.race} | Grade: ${this.grade} | Rarity: ${this.rarity} | AI: ${this.ai}`
                     + (this.nickname.length > 0 ? " | Nicknames: " + this.nickname : "")
             })
             .setColor('Red')
             .setURL("https://dx2wiki.com/index.php/" + encodeURI(this.name))
-            .setThumbnail("https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Demons/" + encodeURI(this.name.replace("☆", "")) + ".jpg");    
-        if(this.p1Desc) { //If the demon has no panels, then there's shouldn't even be a 'Panels:' section
-            embed.addFields({name: "Panels:", value: this.panels(), inline: true});
-        }
-        embed.addFields({name: "Stats:", value: this.stats(rank, _demons.length) + this.avaliability(), inline: true});
+            .setThumbnail("https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Demons/" + encodeURI(this.name.replace("☆", "")) + ".jpg");  
         return embed;
     }
 
@@ -214,6 +214,4 @@ module.exports = class Demon {
 
         return _demons;
     }
-
-    static async 
 }
