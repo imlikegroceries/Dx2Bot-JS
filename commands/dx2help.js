@@ -11,13 +11,12 @@ module.exports = {
             .addFields({
                 name: "/dx2demon [name]",
                 value: "Returns the information of the demon with the inputted name.\n" +
-                    "Can also use nicknames, or search part of the demon's name.\n" +
+                    "Can also use nicknames, or search the beginning or end of a demon's name.\n" +
                     "For instance: 'fly' = Beelzebub*, 'yoshi' = Yoshitsune, 'gongen' = Zaou-Gongen"
             },
             {
                 name: "/dx2skill [name]",
-                value: "Returns the information of the skill with the inputted name.\n" +
-                    "Search functionality is identical to /dx2demon"
+                value: "Returns the information of the skill with the inputted name."
             },
             {
                 name: "/dx2tier [name]",
@@ -52,7 +51,7 @@ module.exports = {
                 name: "/dx2banner calc [steps]",
                 value: "Returns the probabilities of rolling on a banner the inputted number of times.\n" +
                     "You will be given a dropdown menu of banners (only on-going ones).\n" +
-                    "After making a selection, the probabilities of rolling a 5\\*, banner specific demons, and any other 5\\* are listed"
+                    "After making a selection, the probabilities of rolling a 5\\*, rate-up demons, and any other 5\\* are listed"
             },
             {
                 name: '/ag2 map [floor]',
@@ -62,11 +61,6 @@ module.exports = {
             {
                 name: "/ag2 boss [floor]",
                 value: "Returns the information of the boss of the inputted AG2 floot."
-            },
-            {
-                name: "/ag2 spboss [name]",
-                value: "Returns the information of the inputted special (one-time) boss.\n" +
-                    "Pick from any of the 5 Celestials or 5 Multi-fusion unlock bosses."
             },
             {
                 name: "/dx2arm sword [name]",

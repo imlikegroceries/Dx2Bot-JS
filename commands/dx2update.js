@@ -1,11 +1,5 @@
 const {SlashCommandBuilder} = require('discord.js');
-const {readWiki} = require('../tierlistReader');
-const {readBanners} = require('../bannerCSV');
-
-module.exports = async function updateBot() {
-    const tierlist = await readWiki();
-    const banner = await readBanners(20);
-}
+const {updateBot} = require('../updater');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -21,8 +15,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        const tierList = await readWiki();
-        const banner = await readBanners(20);
+        const {tierList, banner} = await updateBot();
 
         await interaction.editReply({content: `${tierList}; Read ${banner} new banner steps`, ephemeral: true});
     }

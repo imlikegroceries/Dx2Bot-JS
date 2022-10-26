@@ -59,7 +59,7 @@ module.exports = {
             const teal = d.awakenT;
             if(teal == skillName ||
                 (teal == 'Null Elec-Force' && (elem == 'Elec' || elem == 'Force') && resist == 'nu') ||
-                (teal == 'Godly Shield' && (elem == 'Light' || elem == 'Dark')) && resist == 'dr') {
+                (teal == 'Godly Shield' && (elem == 'Light' || elem == 'Dark') && resist == 'dr')) {
                 
                 tAwaken.push(d.name);
             }

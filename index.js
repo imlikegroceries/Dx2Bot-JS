@@ -2,6 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {Client, GatewayIntentBits, Collection} = require('discord.js');
 const {token} = require('./config.json');
+const updateBot = require('./updater');
+const cron = require('node-cron');
 
 const client = new Client({intents: [GatewayIntentBits.Guilds]});
 client.commands = new Collection();
@@ -19,24 +21,11 @@ client.once('ready', () => {
     console.log('Dx2Bot is ready.');
 });
 
+//For commands
 client.on('interactionCreate', async interaction => {
-    if(!interaction.isChatInputCommand() && !interaction.isSelectMenu()) return;
+    if(!interaction.isChatInputCommand()) return;
     
     const command = interaction.client.commands.get(interaction.commandName);
-
-    if(interaction.isSelectMenu()) {
-        if(!interaction.message.interaction.commandName.includes('dx2banner')) return;
-
-        try {
-            await interaction.client.commands.get('dx2banner').execSelect(interaction);
-        } catch(error) {
-            console.error(error);
-            await interaction.reply({content: 'Error', ephemeral: true});
-        }
-        return;
-    } else { //Always a slash command
-        if(!command) return;
-    }
 
     try {
         console.log(`\nExecuting ${interaction.commandName}`);
@@ -47,4 +36,19 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
+//For select menus (banner calc)
+client.on('interactionCreate', async interaction => {
+    if(!interaction.isSelectMenu()) return;
+    if(!interaction.message.interaction.commandName.includes('dx2banner')) return;
+
+    try {
+        await interaction.client.commands.get('dx2banner').execSelect(interaction);
+    } catch(error) {
+        console.error(error);
+        await interaction.reply({content: 'Error', ephemeral: true});
+    }
+})
+
 client.login(token);
+
+cron.schedule('2 * * * *', updateBot);
