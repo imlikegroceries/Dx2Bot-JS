@@ -104,7 +104,7 @@ module.exports = {
         const [idStart, steps] = interaction.values[0].split('_');
         console.log(`Calcuting odds on banner ${idStart} rolling ${steps} steps`);
         await interaction.deferReply();
-        await interaction.reply(await parsePage(idStart, steps));
+        await interaction.editReply(await parsePage(idStart, steps));
     }
 }
 
