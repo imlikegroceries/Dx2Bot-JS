@@ -103,6 +103,7 @@ module.exports = {
     async execSelect(interaction) {
         const [idStart, steps] = interaction.values[0].split('_');
         console.log(`Calcuting odds on banner ${idStart} rolling ${steps} steps`);
+        await interaction.deferReply();
         await interaction.reply(await parsePage(idStart, steps));
     }
 }
