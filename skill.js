@@ -90,7 +90,7 @@ module.exports = class Skill {
     async writeToDiscord(demons) {
         const innate = this.innateFrom(demons);
         const transfer = this.transferFrom(demons);
-        if(innate) this.desc += '\n' + innate;
+        if(innate) this.desc += '\n' + innate + '\n';
         if(transfer) this.desc += '\n' + transfer;
 
         const embed = new EmbedBuilder()
