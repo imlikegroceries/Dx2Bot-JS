@@ -13,7 +13,8 @@ module.exports = {
         .addStringOption(option => 
             option.setName('name')
             .setDescription('Name of demon to search')
-            .setRequired(true)),
+            .setRequired(true)
+            .setAutocomplete(true)),
 
     async execute(interaction) {
         let demons = await Demon.demons();

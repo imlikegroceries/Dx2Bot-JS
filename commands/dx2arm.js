@@ -13,14 +13,16 @@ module.exports = {
                 .addStringOption(option =>
                     option.setName('name')
                         .setDescription('Name of the demon')
-                        .setRequired(true)))
+                        .setRequired(true)
+                        .setAutocomplete(true)))
         .addSubcommand(subcommand =>
             subcommand.setName('shield')
                 .setDescription('Information of a shield')
                 .addStringOption(option =>
                     option.setName('name')
                         .setDescription('Name of the demon')
-                        .setRequired(true))),
+                        .setRequired(true)
+                        .setAutocomplete(true))),
     
     async execute(interaction) {
         const type = interaction.options.getSubcommand();

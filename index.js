@@ -4,6 +4,7 @@ const {Client, GatewayIntentBits, Collection} = require('discord.js');
 const {token} = require('./config.json');
 const updateBot = require('./updater');
 const cron = require('node-cron');
+const autocomplete = require('./autocomplete');
 
 const client = new Client({intents: [GatewayIntentBits.Guilds]});
 client.commands = new Collection();
@@ -46,6 +47,18 @@ client.on('interactionCreate', async interaction => {
     } catch(error) {
         console.error(error);
         await interaction.reply({content: 'Error', ephemeral: true});
+    }
+});
+
+client.on('interactionCreate', async interaction => {
+    if(!interaction.isAutocomplete()) return;
+    console.log(interaction.commandName);
+    if(interaction.commandName == 'dx2demon' || interaction.commandName == 'dx2tier') {
+        await autocomplete.demonAuto(interaction);
+    } else if(interaction.commandName == 'dx2skill') {
+        await autocomplete.skillAuto(interaction);
+    } else if(interaction.commandName == 'dx2arm') {
+        await autocomplete.armamentAuto(interaction);
     }
 })
 

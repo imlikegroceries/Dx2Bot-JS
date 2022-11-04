@@ -10,7 +10,8 @@ module.exports = {
         .addStringOption(option => 
             option.setName('name')
             .setDescription('Name of the skill to search')
-            .setRequired(true)),
+            .setRequired(true)
+            .setAutocomplete(true)),
     
     async execute(interaction) {
         const demons = await Demon.demons();
