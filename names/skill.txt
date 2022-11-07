@@ -1,0 +1,840 @@
+Cleave
+Fatal Sword
+Fatal Sword L
+Berserker God
+Megaton Raid
+God's Hand
+Mow Down
+Herculean Strike
+Hades Blast
+Vorpal Blade
+Gigantomachia
+Lunge
+Oni-Kagura
+Mortal Jihad
+Heat Wave
+Megaton Press
+Titanomachia
+Rampage
+Deathbound
+Madness Nails
+Hell Claw
+Nihil Claw
+Tempest Slash
+Myriad Arrows
+Toxic Sting
+Binding Claw
+Paralyzing Bite
+Dark Sword
+Sweet Bite
+Eat Whole
+Binge Eating
+Power Hit
+Ouas
+Gungnir
+Mist Slashes
+Gae Bulg
+Hassou Tobi
+Yinglong Killer
+Hell Thrust
+Agi
+Agilao
+Agidyne
+Trisagion
+Maragi
+Maragi L
+Maragion
+Maragidyne
+Fire Breath
+Hellfire
+Ragnarok
+Bufu
+Bufula
+Bufudyne
+Ice Age
+Mabufu
+Mabufula
+Mabufudyne
+Ice Breath
+Glacial Blast
+Cold World
+Zio
+Zionga
+Ziodyne
+Thunder Reign
+Mazio
+Mazionga
+Maziodyne
+Shock
+Bolt Storm
+Mjolnir
+Zan
+Zanma
+Zandyne
+Killing Wind
+Mazan
+Mazanma
+Mazandyne
+Wind Breath
+Twister
+Kusanagi
+Hama
+Hamaon
+Hamadyne
+Thunderclap
+Mahama
+Mahamaon
+Mahamadyne
+Judgement Light
+Holy Wrath
+God's Bow
+Trial of Hate
+Soul Judgement
+Mudo
+Mudoon
+Mudodyne
+Hell Gaze
+Mamudo
+Mamudoon
+Mamudodyne
+Evil Gaze
+Purgatory
+Allure
+Gluttony
+Go to Hell!
+Die for Me!
+Mind Break
+Life Drain
+Deathtouch
+Spirit Drain
+Energy Drain
+Soul Drain
+Megido
+Megidola
+Megidolaon
+Judgement
+Sea of Chaos
+Apocalypse
+Morning Star
+Pralaya
+Divine Bows' Allure
+Fire of Sinai
+God's Malice
+Mesopotamian Star
+Brahmastra
+Babylon Goblet
+Poisma
+Poismaon
+Mahapoisma
+Mahapoismaon
+Toxic Cloud
+Shibaboo
+Shibabooon
+Mahashibaboo
+Mahashibabooon
+Binding Cry
+Marin Karin
+Marin Karion
+Mahamarin Karin
+Mahamarin Karinon
+Sexy Dance
+Makajam
+Makajamaon
+Mahamakajam
+Mahamakajamaon
+White Noise
+Ju
+Juon
+Mahaju
+Mahajuon
+Vengeance
+Dezoreto
+Dezoreton
+Madezoreto
+Madezoreton
+Outbreak
+Lotus Dance
+Dia
+Diara
+Diara L
+Diarama
+Diarahan
+Media
+Mediara
+Mediarama
+Mediarahan
+Salvation
+Recarm
+Samrecarm
+Recarmdra
+Posumudi
+Meposumudi
+Mutudi
+Memutudi
+Charmdi
+Mecharmdi
+Paraladi
+Meparaladi
+Cursedi
+Mekasudi
+Weakdi
+Meweakdi
+Amrita
+Prayer
+Silent Prayer
+Orlean Prayer
+Mother Creation
+Ce Acatls' Return
+Charge
+Rebellion
+Concentrate
+Discord
+Tetrakarn
+Makarakarn
+Tetra Break
+Makara Break
+Tetraja
+Tarukaja
+Rakukaja
+Sukukaja
+Tarunda
+Rakunda
+Sukunda
+Dekaja
+Dekunda
+Luster Candy
+War Cry
+Acid Breath
+Fog Breath
+Taunt
+Debilitate
+Defensive Cry
+Barrier
+Barrier Break
+Lydia
+Lydia Break
+Tag
+Mega Boost
+Red Zone
+Five Elements
+Barong Dance
+Tenson Kourin
+Dark Pandemic
+Phys Boost
+Fire Boost
+Ice Boost
+Elec Boost
+Force Boost
+Light Boost
+Dark Boost
+Recovery Boost
+Phys Amp
+Fire Amp
+Ice Amp
+Elec Amp
+Force Amp
+Light Amp
+Dark Amp
+Recovery Amp
+Phys Pierce
+Superior Power
+Fire Pierce
+Ice Pierce
+Elec Pierce
+Dark Pierce
+Force Pierce
+Resist Phys
+Resist Fire
+Resist Ice
+Resist Elec
+Resist Force
+Resist Light
+Resist Dark
+Null Phys
+Null Fire
+Null Ice
+Null Elec
+Null Force
+Null Light
+Null Dark
+Repel Phys
+Repel Fire
+Repel Ice
+Repel Elec
+Repel Force
+Repel Light
+Repel Dark
+Drain Phys
+Drain Fire
+Drain Ice
+Drain Elec
+Drain Light
+Drain Dark
+Resist Poison
+Resist Bind
+Resist Charm
+Resist Mute
+Resist Curse
+Resist Weak
+Null Poison
+Null Bind
+Null Charm
+Null Mute
+Null Curse
+Null Weak
+Speedster
+Good Aim
+Great Aim
+Dragon Sense
+Dodge
+Evade
+Vahana
+Stealth
+Madness
+Insanity
+Hellish Mask
+Infernal Mask
+Mutant
+Fast Recovery
+Epic Recovery
+Bloody Glee
+Savage Glee
+Wild Guess
+Wild Instinct
+Life Bonus
+Life Gain
+Life Surge
+Mana Bonus
+Mana Gain
+Mana Surge
+Strength Amp I
+Strength Amp II
+Strength Amp III
+Vitality Amp I
+Vitality Amp II
+Vitality Amp III
+Agility Amp I
+Agility Amp II
+Agility Amp III
+Magic Amp I
+Magic Amp II
+Magic Amp III
+Luck Amp I
+Luck Amp II
+Luck Amp III
+Assassin
+Master Assassin
+Serial Killer
+Butcher
+Deadly Poison
+Deadly Bondage
+Deadly Charm
+Deadly Mute
+Deadly Curse
+Berserker
+Back Attack
+Merciless Blow
+Arms Mastery
+Rasetsu
+Counter
+Retaliate
+Death Counter
+Endure
+Enduring Soul
+Avatar
+Life Aid
+Mana Aid
+Infinite Chakra
+Tetraka Shift
+Makara Shift
+Repel Pierce
+Drain Pierce
+Kongo Zaou
+Guards of Tartarus
+Curse of Distress
+Curse of Anguish
+Death Lust
+Auto-Taruka
+Auto-Rakuka
+Auto-Sukuka
+Auto-Tarunda
+Auto-Rakunda
+Auto-Sukunda
+Intimidating Stance
+Suppress Stance Drain
+Faith in Wealth
+Trickster
+Lunar Blessing
+Luck
+Dmg Panel V I
+Dmg Panel V II
+Dmg Panel Immunity
+Trap Free
+Void Dark Zones
+Fog of Death
+Call to Helheim
+Rattle
+Harmonious Death
+Meslamtaea
+Plague of Babylon
+Fruit of the Dead
+Euphoric Frenzy
+Yomotsu Okami
+You're Next
+Yaxche
+Offensive Cry
+Mind Blast
+War Dance
+Hamaon L
+Mudoon L
+Zanma L
+Zionga L
+Bufula L
+Agilao L
+MahaLantine
+MahaFrosty
+Necro Dogma
+Demon Birth Cry
+Bleeder
+Arcane Ritual
+Nocturne
+Hell's Gate
+Law of Hell
+Warlord's Wrath
+Occult Flash
+Nightlife
+Sass
+Blood Rush
+Foresight
+Agile Cry
+Gomorrah (B)
+Gomorrah (J)
+Beloved Slash
+Madama Stomp
+Madama Uppercut
+Pussyfoot
+Lord of the Abyss
+Voltage
+Rapid Shot
+Shadow-Shock
+Griffon-Bolt
+Million Stab
+Overture
+Phys Pierce [weak]
+Dark Pierce [weak]
+Light Pierce [weak]
+Fire Pierce [weak]
+Elec Pierce [weak]
+Ice Pierce [weak]
+Force Pierce [weak]
+Ishvara
+Third Eye
+Drain Force
+Andalucia
+New Hope
+Preach
+Cleansing Shout
+Mabufu L
+Mazan L
+Mazio L
+Mahama L
+Mamudo L
+Loyal God of War
+Dragon Blade
+Null Mortal
+Epitome of Aggression
+Epitome of Madness
+Joy Song
+Unyielding Phalanx
+Muscle Punch
+Earth Sacrifice
+Earthquake
+Final Opposition
+Epitome of Carnage
+Epitome of Fortitude
+Master Prankster
+Magna Mater
+Elec Enhancement
+Lord of Clouds
+Lightning Shower
+Skanda
+Enma's Judgement
+Guilty
+Three Faces Six Arms
+Ashura
+Dark Enhancement
+Ignite
+Wrathful Flame
+The Great Darkness
+Ice Enhancement
+Fire Enhancement
+Light Enhancement
+Force Enhancement
+Terror of London
+Rains of Canaan
+Tempest
+God's Word
+Ascension
+God's Blessing
+Tailwind
+God's Fire
+Sunrise
+Halahala
+Golden Greed
+Blight
+Judgement of Nahar
+Nastrond
+Garden of Eden
+Mediara L
+Herculean Strike L
+Plague
+Pestilence
+Famine
+Soul Divide
+Bloodshed
+Shogun's Order
+Blade of Terror
+Icy Rage
+Vengeful Frost Fist
+Heavenly Valor
+Violent Slash
+Brilliant Wings
+Gale Talon
+Guardian of the East
+Kuyo Flash
+Faithful Counter
+Epitome of Swiftness
+Endless War
+Slaughter All
+Culann's Hound
+Barbed Spear
+Ce Acatl
+Aztec Pulse
+Radiant Mantra
+Path of Prominence
+War Aid
+Enemy Annihilation
+Lunar Awakening
+Hell's Trivia
+North Wind
+Yaksha Claw
+Thunder of Destiny
+Last Resort
+Hell's Ministry
+Light Devourer
+Flag of Salvation
+Amakusa Uprising
+Death Blow
+Auto-Rebellion
+Killer Impulse
+Thunderstorm
+The Struggler
+Dragon Slayer
+Foe of Demons
+Sword of Actuation
+Bloody Scripture
+God 1000 Fist Cannon
+Elemental Magic
+Summon Elementals
+Diwali
+Virtuous Prosperity
+Star of Darkness
+Dark Premonition
+Null Drk Zone and Dmg Panel
+Give me Jewels
+Do Me A Favor
+Epitome of Endurance
+Sins of Sodom
+Flames of Gomorrah
+Call of the Dead
+Hand of Glory
+Goddess of Slaughter
+Violent Dance
+Peach of Immortality
+Goddess' Fan
+Desperate Hit
+Iron Judgement
+Illusionary World
+Glamorous Allure
+Moment of Fate
+Enduring Soul +
+Shimmer Arrow
+Daylight Blade
+God's Grace
+Glorious Bolt
+Passionate Rage
+Severed Fate
+Elemental Cycle
+Passionate Embrace
+Measured Fate
+Lunar Downfall
+Passionate Allure
+Woven Fate
+Lunar Prosperity
+Fallen Grigori
+Guillotine Blaze
+Solar Prosperity
+Black Beckoning
+Black Lullaby
+Epitome of Illusion
+Forbidden Fruit
+Temptation
+Epitome of Wisdom
+Hell Leopard
+Iron Fist
+Optical Camouflage
+Ghost Hack
+50 mm Grenade Launcher
+Sahasrara
+Ruin and Grace
+Sadistic Blow
+Solar Downfall
+Everything Evil
+16 Scourges
+False God
+Supreme Creator
+Almighty Boost
+Ars Magna
+Invasion
+Null Elec-Force
+Halo of Hallel
+Baptisma
+Sword of Hallel
+Heavenly Sword
+Berserker Armor
+Berserk
+Hawk of Light
+Blade of the Absolute
+Nosferatu
+Rip
+Mark of the Beast
+Blasphemy
+Soul Judgement (Sraosha)
+Soul Break
+Megingjord
+Thunderous Hammer
+Twilight Inferno
+Eruption
+Elec Survivor
+Fire Survivor
+Force Survivor
+Dark Survivor
+Epitome of Hardiness
+Rallying Survivor
+Kujaku Myo-o
+Blossoming Cyclone
+Life & Death
+Soul Hunt
+Vile Glare
+Cry of the Poor
+Force Prana
+Dark Prana
+Phys Survivor
+Power of Life
+Sweet Whisper
+Ego Erosion
+Alder King
+Ice Survivor
+Light Survivor
+Phys Prana
+Fire Prana
+Light Prana
+Ice Prana
+Elec Prana
+Supersonic Hedgehog
+Spin Dash
+Resonant Garnet
+Almighty Survivor
+Death Flyers
+Lord of the Dead
+Great Chaos
+King of Hell
+Omniscient Guidance
+Noblewoman Aid
+Duke of Hell
+Dynamic Evil Spear
+Dragon of Defense
+Soaring Blades
+Epitome of Finesse
+Tachikoma Support
+SEBURO C-40A
+God of Light
+Bemusing Rhapsody
+Deadly Melody
+Ailment Survivor
+Fecund Womb
+Freezing Gale
+6th Sense Survivor
+Dragon of Hesperia
+Fury Raid
+Phys Debuff
+Sword Deity's Might
+Ryujin Reflection
+Tempest Slash +
+Iai Isshin
+Zealous Rebel
+Sun God's Majesty
+Sacrificial Inferno
+Barrier Survivor
+Null Bind-Weak
+Fox Sin of Greed
+Physical Hunt
+Goddess Aid
+Ark
+Almighty Debuff
+The Ten Commandments
+Trillion Dark
+Hell Hound
+Hell Blaze
+Fire Accele
+Ice Accele
+Phys Accele
+Elec Accele
+Force Accele
+Dark Accele
+Light Accele
+Almighty Accele
+Master of Hell
+Lord Astaroth
+Cleaving Aura
+Wicked Strike
+Stella Maris
+Miracle of Fatima
+Goddess' Embrace
+Great Idea
+Heal Survivor
+King of Vengeance
+Lionfall
+Boar Rush
+Phys Slowda
+Crawling Chaos
+Otherworldly Force
+Null Mute-Curse
+Fire Debuff
+Fire Slowda
+Drunken Giant
+Scarlet Inferno
+Fire Slash
+Ice Slash
+Wind Slash
+Thunder Slash
+White Slash
+Black Slash
+Rending Fire
+Rending Ice
+Rending Thunder
+Rending Wind
+Rending White
+Rending Dark
+Dark Debuff
+Ome Acatl
+Yohuallipoca
+Null Charm-Poison
+Suk Flexi
+Lost Sanity
+Call of R'lyeh
+Between Heaven & Earth
+Raijin Koryu Palm Strike
+Mamudobarion
+Maragibarion
+Mabufubarion
+Maziobarion
+Mazanbarion
+Mahamabarion
+Yin Yang Cycle
+Tar Flexi
+Iwato Priestess
+God of Ubiquity
+Nirvana
+Mask of Veiled Beauty
+Flying High
+Path of the Mage
+Thunderforce
+Almighty Slowda
+Bifrost Keeper
+Stout Horn
+Rak Flexi
+Hero of Prophecy
+Demonsbane
+Light of Elohim
+Endless One
+Solar Flare
+Godly Bastion
+Godly Judgement
+Godly Power
+Godly Shield
+Aqua Grace
+Hell Stream
+Shaddai's Eye
+El Rey
+Almighty Amp
+Epitome of Interception
+Omen of Rebellion
+Arms Dance
+Sabaoth's Voice
+Sanction
+Force Debuff
+Invincibilty Aid
+Exorcise Evil
+Epitome of Wisdom 2
+Radiant Light
+Covenant Bless
+Mark of Punishment
+Demonic Flame's Aid
+Abyss Flare
+Abyss Flame
+Chief God's Rage
+Divine Spear Gungir
+Chief God's Mastery
+Chief God's Haki
+Cleaving Thunder
+Tie-Breaker
+Scathe of Branches
+Samudra Manthan
+Albion Giant
+Ukehi
+Primoridial Water
+Serpent Killer
+Immortal Shrine
+Crackling Thunder
+Calon Arang
+Last Plague
+Starry Passion
+Mahelldyne
+Midnight Feast
+Yinglong Flash
+Thunderous Curse
+Dragon Rain
+Rakshasa Cleaver
+Holy Union
+Vishvakarman's Shelter
+Tempest Talon
+Pillar of Godly Light
+Dazzling Wings
+Angel Halo
+Offering Guidance
+Seductive Lotus
+Summons to Sacrifice
+Unholy Strike
+Purging Flame
+Unholy Delusion
+Clear Space
+Frozen Fist
+Red Serpent Venom
+Sad Vengeance
+Rakshasa Thunder
+Rite of Divine Power
+Kurama Flash
+Gotcha!
+Tiger Strategy
+Innocent Laughter
+Rainstorm
+Rains of Fertility
+Resplendent Voice
+Pure Holy Fire
+Abyssal Magic
+Righteous Rebellion
+Stellar Light
+Divine Flash
+Kuyo Sword Dance
+New Emperor's Revelation

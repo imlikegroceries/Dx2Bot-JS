@@ -15,8 +15,8 @@ module.exports = {
 
         await interaction.deferReply();
 
-        const {tierList, banner} = await updateBot();
+        const {tierList, banner, demons, skills, armaments} = await updateBot();
 
-        await interaction.editReply({content: `${tierList}; Read ${banner} new banner steps`, ephemeral: true});
+        await interaction.editReply({content: `${tierList}; Read ${banner} new banner steps; Recorded ${demons} demons, ${skills} skills, ${armaments} armament demons`, ephemeral: true});
     }
 }

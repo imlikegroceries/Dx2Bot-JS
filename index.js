@@ -52,11 +52,13 @@ client.on('interactionCreate', async interaction => {
 
 client.on('interactionCreate', async interaction => {
     if(!interaction.isAutocomplete()) return;
-    console.log(interaction.commandName);
+
     if(interaction.commandName == 'dx2demon' || interaction.commandName == 'dx2tier') {
         await autocomplete.demonAuto(interaction);
+
     } else if(interaction.commandName == 'dx2skill') {
         await autocomplete.skillAuto(interaction);
+        
     } else if(interaction.commandName == 'dx2arm') {
         await autocomplete.armamentAuto(interaction);
     }
@@ -64,4 +66,4 @@ client.on('interactionCreate', async interaction => {
 
 client.login(token);
 
-cron.schedule('2 * * * *', updateBot);
+cron.schedule('1 * * * *', updateBot);

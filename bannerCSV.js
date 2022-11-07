@@ -69,8 +69,6 @@ module.exports = {
                 else probabilities.set(k, +probabilities.get(k) * v);
             });
         }
-        
-        console.log(probabilities);
 
         const embed = new EmbedBuilder()
             .setTitle('Probability of Rolling in ' + numSteps + ' Step' + ((numSteps != 1) ? 's' : '') + ' On\nThe ' + name)
@@ -205,4 +203,4 @@ const regularPool = [
     "Mastema(83)",
     "Michael(90)",
     "Metatron(99)"
-]
+];
