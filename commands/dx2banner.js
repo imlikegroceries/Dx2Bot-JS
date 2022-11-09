@@ -60,7 +60,7 @@ module.exports = {
         for(let [name, data] of currentBanners.entries()) {
             let obj = {};
             obj.name = name;
-            obj.value = `${data[3]} Steps\nDuration: ${data[0].replace('(JST)', '')} ~ ${data[1].replace('(JST)', '')}\n${dateRemainingString(data[1])}`;
+            obj.value = `${data[3]} Steps\nFrom: <t:${getDate(data[0]) / 1000}>\nTo: <t:${getDate(data[1]) / 1000}>\nEnds <t:${getDate(data[1]) / 1000}:R>`;
             obj.inline = false;
             banners.push(obj);
         }
@@ -108,10 +108,14 @@ module.exports = {
     }
 }
 
-
-function dateRemaining(dateString) {
+function getDate(dateString) {
     const gmtDate = dateString.replace('(JST)', ' GMT+0900');
     const d = date.parse(gmtDate, 'MM/DD/YYYY HH:mm [GMT]Z');
+    return d;
+}
+
+function dateRemaining(dateString) {
+    const d = getDate(dateString);
     const now = new Date();
     const diff = date.subtract(d, now);
     return diff;
@@ -120,18 +124,4 @@ function dateRemaining(dateString) {
 //Checks if the input date is before the current time
 function checkBefore(dateString) {
     return dateRemaining(dateString).toMilliseconds() < 0;
-}
-
-function dateRemainingString(dateString) {
-    const diff = dateRemaining(dateString);
-    const day = ~~diff.toDays();
-    const hour = ~~diff.toHours() % 24;
-    const min = ~~diff.toMinutes()% 60;
-    let res = `${day} Day`;
-    if(day != 1) res += 's';
-    res += `, ${hour} Hour`;
-    if(hour != 1) res += 's';
-    res += `, ${min} Minute`;
-    if(min != 1) res += 's';
-    return res + ' Remaining';
 }
