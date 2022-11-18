@@ -6,7 +6,8 @@ const resistLookup = {
     'rs': 'Resist',
     'nu': 'Null',
     'rp': 'Repel',
-    'ab': 'Drain'
+    'ab': 'Drain',
+    'ndr': 'NDR'
 };
 
 module.exports = {
@@ -18,24 +19,25 @@ module.exports = {
             .setDescription('The type of resistance')
             .setRequired(true)
             .addChoices(
-                {name: 'Weak', value: 'wk'},
-                {name: 'Resist', value: 'rs'},
-                {name: 'Null', value: 'nu'},
-                {name: 'Repel', value: 'rp'},
-                {name: 'Drain', value: 'ab'}
+                {name: 'weak', value: 'wk'},
+                {name: 'resist', value: 'rs'},
+                {name: 'null', value: 'nu'},
+                {name: 'repel', value: 'rp'},
+                {name: 'drain', value: 'ab'},
+                {name: 'ndr', value: 'ndr'}
             ))
         .addStringOption(option => 
             option.setName('elem')
             .setDescription('The element of the resistance')
             .setRequired(true)
             .addChoices(
-                {name: 'Phys', value: 'Phys'},
-                {name: 'Fire', value: 'Fire'},
-                {name: 'Ice', value: 'Ice'},
-                {name: 'Force', value: 'Force'},
-                {name: 'Elec', value: 'Elec'},
-                {name: 'Light', value: 'Light'},
-                {name: 'Dark', value: 'Dark'}
+                {name: 'phys', value: 'Phys'},
+                {name: 'fire', value: 'Fire'},
+                {name: 'ice', value: 'Ice'},
+                {name: 'force', value: 'Force'},
+                {name: 'elec', value: 'Elec'},
+                {name: 'light', value: 'Light'},
+                {name: 'dark', value: 'Dark'}
             )),
 
     async execute(interaction) {
@@ -48,34 +50,69 @@ module.exports = {
 
         console.log(`Searching for demons who ${skillName}`);
 
-        for(let d of demons) {
-            //Natural resistance or transfer skill resist (like Pallas Athena)
-            const dRes = d["r" + elem];
-            if(dRes == resist || d.skil1 == skillName) {
-                natural.push(d.name);
-            }
-
-            //Teal awaken (including unique ones like Demi or Godlys)
-            const teal = d.awakenT;
-            if(teal == skillName ||
-                (teal == 'Null Elec-Force' && (elem == 'Elec' || elem == 'Force') && resist == 'nu') ||
-                (teal == 'Godly Shield' && (elem == 'Light' || elem == 'Dark') && resist == 'dr')) {
-                
-                tAwaken.push(d.name);
-            }
-        }
+        const resistances = findResists(resist, elem, demons);
 
         const embed = new EmbedBuilder()
             .setTitle(skillName)
-            .addFields(
-                {name: 'Innate', value: natural.join(', ')});
-        if(tAwaken.length > 0) {
-            embed.addFields({name: 'Teal Awaken', value: tAwaken.join(', ')})
             .setColor(0x4477FF);
+
+        if(resist != 'ndr') {
+            embed.addFields(
+                    {name: 'Innate', value: resistances.natural.join(', ')});
+            if(resistances.tAwaken.length > 0) {
+                embed.addFields({name: 'Teal Awaken', value: resistances.tAwaken.join(', ')})
+            }
+
+            console.log(`Found ${resistances.natural.length} demons who innate ${skillName} and ${resistances.tAwaken.length} demons who awaken ${skillName}`);
+        } else {
+            embed.addFields(
+                {name: 'Null', value: resistances.nu.join(', ')},
+                {name: 'Null (Awaken)', value: resistances.nuAwaken.join(', ')},
+                {name: 'Drain', value: resistances.dr.join(', ')},
+                {name: 'Drain (Awaken)', value: resistances.drAwaken.join(', ')},
+                {name: 'Repel', value: resistances.rp.join(', ')},
+                {name: 'Repel (Awaken)', value: resistances.rpAwaken.join(', ')},
+            );
+
+            console.log(`Found ${[...Object.values(resistances)].reduce((prev, curr) => [...prev, ...curr], []).length} demons who NDR ${elem}`);
         }
 
-        console.log(`Found ${natural.length} demons who innate ${skillName} and ${tAwaken.length} demons who awaken ${skillName}`);
 
         await interaction.reply({embeds: [embed]});
     }
+}
+
+function findResists(resist, elem, demons) {
+    const natural = [], tAwaken = [];
+    const skillName = resistLookup[resist] + ' ' + elem;
+
+    if(resist == 'ndr') {
+        const nu = findResists('nu', elem, demons, true);
+        const dr = findResists('ab', elem, demons, true);
+        const rp = findResists('rp', elem, demons, true);
+
+        return {nu: nu.natural, nuAwaken: nu.tAwaken, dr: dr.natural, drAwaken: dr.tAwaken, rp: rp.natural, rpAwaken: rp.tAwaken};
+    }
+
+    for(let d of demons) {
+        let dName = d.name;
+        if(d.rarity == '5') dName = `**${d.name}**`;
+        
+        //Natural resistance or innate transfer resist (like Pallas Athena)
+        const dRes = d['r' + elem];
+        if(dRes == resist || d.skill1 == skillName)
+            natural.push(dName);
+
+        //Teal awaken (including unique ones like Demi/Godlys)
+        const teal = d.awakenT;
+        if(teal == skillName ||
+            (teal == 'Null Elec-Force' && resist == 'nu' && (elem == 'Elec' || elem == 'Force') ||
+            (teal == 'Godly Bastion' && resist == 'ab' && (elem == 'Light' || elem == 'Dark'))))
+            tAwaken.push(dName);
+    }
+
+    natural.sort((a, b) => a.replace('**', '').localeCompare(b.replace('**', '')));
+    tAwaken.sort((a, b) => a.replace('**', '').localeCompare(b.replace('**', '')));
+
+    return {natural, tAwaken};
 }

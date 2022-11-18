@@ -69,7 +69,6 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Current Banners')
                 .addFields(...banners)
-                .setFooter({text: 'Date/times listed are all in JST'})
                 .setColor(0x6644FF);
 
             await interaction.reply({embeds: [embed]});
