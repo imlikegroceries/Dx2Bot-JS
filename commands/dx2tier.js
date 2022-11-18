@@ -20,7 +20,7 @@ module.exports = {
         let demons = await Demon.demons();
         const search = interaction.options.get('name').value.trim().replace('*', '☆').toLowerCase();
         const name = await searchList(demons, search, false, true);
-
+    
         //name will either be the searched Demon, or a string of the error message
         if(typeof name == 'string' || name instanceof String) {
             await interaction.reply(name);
@@ -37,11 +37,11 @@ module.exports = {
             await interaction.reply(`${name.name} is present in Wiki, but has no tier list entry.`);
             return;
         }
-
+    
         //Archetype strings will either be empty ('' = Any), or like 'PTY'
         const pveArch = (data[1].length > 1) ? data[1].split('').join(', ') : "Any";
         const pvpArch = (data[2].length > 1) ? data[2].split('').join(', ') : "Any";
-
+    
         let desc = 'Pros: ';
         desc += data[8].replace(/\n/g, "\n* ") + '\n\n'; //replace '\n' that appear in text with actual newlines + format to bullets
         desc += 'Cons: ' + data[9].replace(/\n/g, "\n* ");
@@ -49,7 +49,7 @@ module.exports = {
         if(desc.length > 1900) { //Arbitrarily set to be safely below 2000 char limit
             desc = desc.slice(0, 1900) + " ...\nEntry too long, continue reading on the Wiki.";
         }
-
+    
         const embed = new EmbedBuilder()
             .setTitle(data[0]) //Name
             .setDescription(desc) //Pros + Cons
@@ -64,8 +64,9 @@ module.exports = {
             .setColor(0xFF4444)
             .setURL("https://dx2wiki.com/index.php/" + encodeURI(name.name))
             .setThumbnail("https://raw.githubusercontent.com/Alenael/Dx2DB/master/Images/Demons/" + encodeURI(name.name.replace("☆", "")) + ".jpg");  
-
+    
         console.log(`Successfully generated response of tier data of ${search} (${data[0]})`);
+
         await interaction.reply({embeds: [embed]});
     }
 }
