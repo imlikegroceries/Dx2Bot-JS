@@ -46,7 +46,7 @@ module.exports = {
         return i;
     },
 
-    async parsePage(id, numSteps) {
+    async parsePage(id, numSteps, startStep) {
         //Try to establish document
         var document;
         try {
@@ -63,7 +63,7 @@ module.exports = {
         const probabilities = new Map(); //Name: Probability pairs
 
         for(let i = 0; i < numSteps; i++) {
-            const stepProb = await parseStep(steps[i % maxSteps]);
+            const stepProb = await parseStep(steps[(i + +startStep - 1) % maxSteps]);
             stepProb.forEach((v, k, m) => {
                 if(!probabilities.has(k)) probabilities.set(k, +v);
                 else probabilities.set(k, +probabilities.get(k) * v);
@@ -71,7 +71,7 @@ module.exports = {
         }
 
         const embed = new EmbedBuilder()
-            .setTitle('Probability of Rolling in ' + numSteps + ' Step' + ((numSteps != 1) ? 's' : '') + ' On\nThe ' + name)
+            .setTitle(`Rolling ${numSteps} Step${(numSteps != 1) ? 's' : ''} From Step ${startStep}\nOn ${name}`)
             .setFields([...probabilities.entries()].map(d => {
                 return {name: d[0], value: ~~((1 - d[1]) * 10000) / 100 + '%'}
             }))

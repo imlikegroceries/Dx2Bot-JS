@@ -21,7 +21,13 @@ module.exports = {
                         .setDescription('The number of steps to simulate')
                         .setRequired(true)
                         .setMinValue(1)
-                        .setMaxValue(100))),
+                        .setMaxValue(100))
+                .addIntegerOption(option => 
+                    option.setName('start')
+                        .setDescription('The step to start simulating from (default = 1)')
+                        .setRequired(false)
+                        .setMinValue(1)
+                        .setMaxValue(10))),
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
@@ -81,7 +87,7 @@ module.exports = {
                     {
                         label: name,
                         description: data[3] + ' Step Cycle',
-                        value: data[2] + '_' + interaction.options.get('steps').value
+                        value: `${data[2]}_${interaction.options.get('steps').value}_${interaction.options.getInteger('start') ?? 1}`
                     }
                 );
             }
@@ -100,10 +106,10 @@ module.exports = {
 
     //For the select menu interaction
     async execSelect(interaction) {
-        const [idStart, steps] = interaction.values[0].split('_');
-        console.log(`Calcuting odds on banner ${idStart} rolling ${steps} steps`);
+        const [idStart, steps, start] = interaction.values[0].split('_');
+        console.log(`Calcuting odds on banner ${idStart} rolling ${steps} steps from step ${start}`);
         await interaction.deferReply();
-        await interaction.editReply(await parsePage(idStart, steps));
+        await interaction.editReply(await parsePage(idStart, steps, start));
     }
 }
 
