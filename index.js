@@ -52,14 +52,15 @@ client.on('interactionCreate', async interaction => {
 
 client.on('interactionCreate', async interaction => {
     if(!interaction.isAutocomplete()) return;
+    const name = interaction.commandName
 
-    if(interaction.commandName == 'dx2demon' || interaction.commandName == 'dx2tier') {
+    if(name == 'dx2demon' || name == 'dx2tier' || name == 'dx2banner') {
         await autocomplete.demonAuto(interaction);
 
-    } else if(interaction.commandName == 'dx2skill') {
+    } else if(name == 'dx2skill') {
         await autocomplete.skillAuto(interaction);
         
-    } else if(interaction.commandName == 'dx2arm') {
+    } else if(name == 'dx2arm') {
         await autocomplete.armamentAuto(interaction);
     }
 })

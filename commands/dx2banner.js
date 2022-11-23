@@ -5,6 +5,8 @@ const date = require('date-and-time');
 const path = require('node:path');
 const {readBanners, parsePage} = require('../bannerCSV');
 const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('@discordjs/builders');
+const searchList = require('../searchList');
+const Demon = require('../demon');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -27,7 +29,19 @@ module.exports = {
                         .setDescription('The step to start simulating from (default = 1)')
                         .setRequired(false)
                         .setMinValue(1)
-                        .setMaxValue(10))),
+                        .setMaxValue(10)))
+        .addSubcommand(subcommand =>
+            subcommand.setName('history')
+                .setDescription('Finds the last 25 banners the searched demon appeared on')
+                .addStringOption(option =>
+                    option.setName('name')
+                        .setDescription('Name of demon to search for')
+                        .setRequired(true)
+                        .setAutocomplete(true))
+                .addBooleanOption(option =>
+                    option.setName('new-to-old')
+                        .setDescription('Sets chronological ordering (default is oldest to newest)')
+                        .setRequired(false))),
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
@@ -54,10 +68,11 @@ module.exports = {
                     currentBanners.get(data[0])[3]++;
                 }
             } else {
-                if(!oldBanners.has(data[0])) {
-                    oldBanners.set(data[0], [...data.slice(1), 1]);
+                const key = data[0] + ';' + start;
+                if(!oldBanners.has(key)) {
+                    oldBanners.set(key, [...data.slice(1), 1]);
                 } else {
-                    oldBanners.get(data[0])[3]++;
+                    oldBanners.get(key)[3]++;
                 }
             }
         }
@@ -101,6 +116,55 @@ module.exports = {
                 );
             
             await(interaction.reply({components: [selector], ephemeral: true}));
+        }
+
+        if(subcommand == 'history') {
+            await interaction.deferReply();
+
+            const query = interaction.options.get('name').value.trim().replace('*', '☆').toLowerCase();
+            const demon = await searchList(await Demon.demons(), query, false, true);
+            let dName = demon.name;
+            if(['Shiva A', 'Nekomata A', 'Cu Chulainn A', 'Garuda A', 'Quetzalcoatl A', 'Lakshmi A', 'Abaddon A', 'Susano-o A', 'Surt A', 'Thor A', 'Cerberus A', 'Vishnu A', 'Odin A'].includes(dName)) {
+                dName = 'Dimensional';
+            }
+            if(dName == 'Beelzebub☆') {
+                dName = 'Beelzebub (Human)';
+            }
+
+            if(typeof demon == 'string' || demon instanceof String) {
+                await interaction.editReply(demon);
+                return;
+            }
+
+            let count = 0;
+            let rows = [];
+            let entries = [...oldBanners.entries()];
+            if(interaction.options.getBoolean('new-to-old')) entries.reverse();
+
+            for(let [name, data] of entries) {
+                const page = await fetch(`https://d2r-sim.mobile.sega.jp/socialsv/webview/StepGachaRateView.do?gacha_id=${data[2]}&lang=1`).then(r => r.text());
+                
+                if(page.includes(dName)) {
+                    rows.push({
+                        name: name.split(';')[0],
+                        value: `${data[3]} Steps\nFrom: <t:${getDate(data[0]) / 1000}>\nTo: <t:${getDate(data[1]) / 1000}>\nEnded <t:${getDate(data[1]) / 1000}:R>`
+                    });
+                    count++;
+                    console.log(data[2]);
+                }
+
+                if(count >= 25) break;
+            }
+
+            if(dName == 'Dimensional') dName += 's';
+            const embed = new EmbedBuilder()
+                .setTitle((count < 25 ? 'All ' : '') + 'Previous Banners that include ' + dName)
+                .setFields(...rows)
+                .setColor(0x6644FF);
+            if(count >= 25) embed.setFooter({text: 'More banners exist but have been truncated due to the embed limit'});
+            if(dName == 'Dimensionals') embed.setDescription('Because there is no universal way of differentiating all dimenionsals from their usual counterparts, ' + demon.name + ' has been converted into searching for all dimensnionals.');
+
+            await interaction.editReply({embeds: [embed]});
         }
     },
 

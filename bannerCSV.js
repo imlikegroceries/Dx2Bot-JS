@@ -145,9 +145,6 @@ async function parseStep(acBox) {
     return probabilities;
 }
 
-//Weird gap in between Sukuna and Vishnew rerun?
-
-
 const regularPool = [
     "Erlkonig(84)",
     "Hresvelgr(84)",
